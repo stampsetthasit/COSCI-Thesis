@@ -1,0 +1,428 @@
+body {
+    margin: 0;
+    background-color: white;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* ===== Head ===== */
+.headding {
+    margin: 0;
+    padding: 12px 10px;
+}
+
+
+/* ===== Slide Tab ===== */
+.textSlideR, .textSlideL {
+    background-color: black;
+    color: white;
+    margin: 0;
+    margin-left: -14px;
+    position: absolute;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+}
+.textSlideR span, .textSlideL span {
+    display: inline-block;
+}
+@keyframes rslide {
+    0% {
+        transform: translate(0, 0);
+        -webkit-transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-20%, 0);
+        -webkit-transform: translate(-20%, 0);
+    }
+}
+@-webkit-keyframes rslide {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-20%, 0); }
+}
+
+
+/* ===== video Youtube ===== */
+.divVideo {
+    margin: 0;
+    text-align: center;
+}
+
+
+/* ===== COSCI Major ===== */
+.majorthesis {
+    margin: 0;
+}
+
+
+/* ===== THESTS DETAIL ===== */
+.thesisdetail {
+    margin: 0;
+}
+.slideshowContainer {
+    margin: auto;
+    position: relative;
+    border: 1px solid #444444;
+}
+/* .mySlides, .myDetails {
+    display: none;
+    visibility: hidden;
+} */
+.slideprev, .slidenext {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    opacity: 0.45;
+}
+.slideprev img, .slidenext img {
+    width: 50px;
+}
+.slideprev:hover, .slidenext:hover {
+    opacity: 1;
+}
+.slideprev { left: 15px; }
+.slidenext { right: 15px; }
+
+/* Fading animation */
+.animefade {
+    -webkit-animation-name: fadeimg;
+    -webkit-animation-duration: 2s;
+    animation-name: fadeimg;
+    animation-duration: 2s;
+}
+@-webkit-keyframes fadeimg {
+    from {opacity: .3}
+    to {opacity: 1}
+}
+@keyframes fadeimg {
+    from {opacity: .3} 
+    to {opacity: 1}
+}
+
+
+
+/* ===== FOOTER ===== */
+.divfootter {
+    background-color: black;
+    color: white;
+    padding-bottom: 45px;
+}
+.divfootter .div01, .divfootter .div02, .divfootter .div03 {
+    padding-top: 55px;
+}
+.divfootter .div01 img {
+    width: 220px;
+}
+.divfootter .div02 {
+    text-align: center;
+}
+.divfootter .div02 h3 {
+    font-family: 'Titan One', cursive;
+    margin-top: 1px;
+}
+.divfootter .div02 p {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    /* text-align: justify;
+    text-justify: inter-word; */
+    padding: 4px 12px;
+}
+.divfootter .div02 p span {
+    white-space: nowrap;
+}
+.divfootter .div02 p a {
+    color: white;
+}
+.divfootter .div03 {
+    font-family: 'Kanit', sans-serif;
+    padding-left: 60px;
+}
+.divfootter .div03 a {
+    color: white;
+    display: block;
+    margin-bottom: 26px;
+}
+.divfootter .div03 a:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.divfootter .div03 a img {
+    width: 42px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.divfootter .div03 a span {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+
+
+
+/* ===== Animation ===== */
+/* SlideLeft Animation */
+[data-san=slideLeft] {
+    opacity: 0;
+    transform: translateX(150px);
+    transition-duration: 1s;
+}
+.slideLeft {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SlideRight Animation */
+[data-san=slideRight] {
+    opacity: 0;
+    transform: translateX(-80px);
+    transition-duration: 1s;
+}
+.slideRight {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SlideTop Animation */
+[data-san=slideTop] {
+    opacity: 0;
+    transform: translateY(100px);
+    transition-duration: 1s;
+}
+.slideTop {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+/* Delay */
+[data-san-delay="200"] { transition-delay: 0.2s; }
+[data-san-delay="400"] { transition-delay: 0.4s; }
+[data-san-delay="600"] { transition-delay: 0.6s; }
+[data-san-delay="800"] { transition-delay: 0.8s; }
+
+
+/* =========== Number of Visitors ========== */
+.visithr {
+    border: 1px solid white;
+}
+.visitp {
+    font-size:11px;
+    text-align:left;
+}
+.visittb {
+    width:100%;
+    font-size:11px;
+    text-align:left;
+    margin-top: -10px;
+}
+.visitnum {
+    background-color: #565656;
+    border-radius: 6px;
+    padding: 2px 5px;
+    display: inline-block;
+}
+
+
+
+
+/* Others */
+/* ========== Align Text ========== */
+.txtCenter { text-align: center; }
+.txtRight { text-align: right; }
+.noWrap { white-space: nowrap; }
+/* ========== Center & Middle ========== */
+.divTable {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+.divCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* ========== Modal Show Image Gallery ========== */
+.modalGallery {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    background-color: rgba(0,0,0,0.95);
+}
+.galleryClose {
+    color: #666;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    right: 30px;
+}
+.galleryClose:hover, .galleryClose:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modalGallery, .modalGallery * {
+    box-sizing: border-box;
+}
+.boxGridLR {
+    display: grid;
+    grid-template-areas: 'left right right right right right';
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+}
+#sideBox {
+    grid-area: left;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 6px;
+    overflow: hidden;
+}
+#sideScroll {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#sideScroll::-webkit-scrollbar { width: 10px; }
+#sideScroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+#sideScroll::-webkit-scrollbar-thumb {
+    background: gray; 
+    border-radius: 10px;
+}
+#sideScroll::-webkit-scrollbar-thumb:hover {
+    background: #666; 
+}
+.sideImg {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    height: 8vh;
+    width: calc(100% - 16px);
+    margin: 12px 0;
+    opacity: 0.25;
+    transition: 0.5s;
+}
+.sideImg:first-child { margin-top: 0; }
+.sideImg:last-child { margin-bottom: 0; }
+.imgShow {
+    opacity: 1;
+    border: 4px solid #fff;
+}
+.sideImg:hover {
+    opacity: 0.6;
+    border: 2px solid #aaa;
+    cursor: pointer;
+}
+#divShowGImg {
+    grid-area: right;
+    text-align: center;
+    padding: 10px;
+}
+#showImg {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100%;
+    transition: 0.5s;
+}
+
+
+
+
+/* ===== Resize ===== */
+@media only screen and (max-width: 1190px) {
+    .divfootter .div03 {
+        text-align: center;
+    }
+    .divfootter .div03 a {
+        display: inline-block;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .divfootter .div03 a img {
+        display: inline-block;
+        vertical-align: auto;
+        margin-bottom: 14px;
+    }
+    .divfootter .div03 a span {
+        display: block;
+        margin-left: auto;
+    }
+}
+/* @media only screen and (max-width: 992px) {
+} */
+@media only screen and (max-width: 768px) {
+    .slideprev img, .slidenext img {
+        width: 40px;
+    }
+
+    /* ===== Footer ===== */
+    .divfootter .div01 img {
+        width: 180px;
+    }
+    .divfootter .div01, .divfootter .div02, .divfootter .div03 {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .divfootter .div03 a {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+    .divfootter .div03 a img {
+        width: 36px;
+    }
+
+    /* ===== Others ===== */
+    /* Modal Gallery */
+    .galleryClose { font-size: 40px; }
+}
+@media only screen and (max-width: 580px) {
+    /* ===== Others ===== */
+    /* Modal Gallery */
+    .galleryClose {
+        font-size: 18px;
+        top: 4px;
+        right: 14px;
+    }
+    .boxGridLR {
+        grid-template-areas: 'right' 'right' 'right' 'right' 'left';
+    }
+    #divShowGImg { padding-top: 25px; }
+    #sideScroll {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+    #sideScroll::-webkit-scrollbar { height: 10px; }
+    .sideImg {
+        background-position: top left;
+        background-size: auto 100%;
+        height: calc(100% - 16px);
+        width: 12vw;
+        margin: 0 4px;
+        display: inline-block;
+    }
+    .sideImg:first-child { margin-left: 0; }
+    .sideImg:last-child { margin-right: 0; }
+}
+@media only screen and (max-width: 375px) {
+    /* ===== Footer ===== */
+    .divfootter .div01 img {
+        width: 140px;
+    }
+    .divfootter .div02 h3 {
+        font-size: 1.45em;
+    }
+}
