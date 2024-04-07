@@ -75,6 +75,44 @@ footer p {
     z-index: 2;
 }
 
+#headline {
+    color: black;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+  }
+
+#countdown {
+    background-image: url('/resources/images/2024/element-light2.png'); /* Specify the path to your image */
+    background-size: 60;
+    background-repeat: no-repeat;
+    background-position: right center !important;
+}
+.countdown-number {
+    color: black;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: bold;
+    font-size: 128px;
+    text-align: center;
+}
+
+.countdown-separator{
+        color: black;
+        font-family: 'Noto Sans Symbol';
+        font-weight: bold;
+        font-size: 128px;
+        text-align: center;
+}
+
+.countdown-item {
+    color: black;
+    font-family: 'Gothic A1', sans-serif;
+    font-weight: regular;
+    font-size: 40px;
+    text-align: center;
+}
+
 .description-light {
     width: 60%;
     position: absolute;
