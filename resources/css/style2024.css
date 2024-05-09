@@ -87,7 +87,7 @@ footer p {
 /* Media query for smaller screens */
 @media screen and (max-width: 992px) {
   #description {
-      padding: 16px;
+    padding: 16px;
   }
 
   .description-light {
@@ -100,43 +100,44 @@ footer p {
 }
 
 #headline {
-    color: black;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    font-size: 48px;
-    text-align: center;
-  }
+  color: black;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  text-align: center;
+}
 
 #countdown {
-    background-image: url('/resources/images/2024/element-light2.png'); /* Specify the path to your image */
-    background-size: 60;
-    background-repeat: no-repeat;
-    background-position: right center !important;
+  background-image: url("/resources/images/2024/element-light2.png"); /* Specify the path to your image */
+  background-size: 60;
+  background-repeat: no-repeat;
+  background-position: right center !important;
 }
 .countdown-number {
-    color: black;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: bold;
-    font-size: 128px;
-    text-align: center;
+  color: black;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: bold;
+  font-size: 128px;
+  text-align: center;
 }
 
-.countdown-separator{
-        color: black;
-        font-family: 'Noto Sans Symbol';
-        font-weight: bold;
-        font-size: 128px;
-        text-align: center;
+.countdown-separator {
+  color: black;
+  font-family: "Noto Sans Symbol";
+  font-weight: bold;
+  font-size: 128px;
+  text-align: center;
 }
 
 .countdown-item {
-    color: black;
-    font-family: 'Gothic A1', sans-serif;
-    font-weight: regular;
-    font-size: 40px;
-    text-align: center;
+  color: black;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: regular;
+  font-size: 40px;
+  text-align: center;
 }
 
+/* Section Ticket */
 .horizontal-scroll-wrapper {
   display: flex;
   overflow-x: auto;
@@ -145,7 +146,6 @@ footer p {
   scrollbar-color: #888 #e0e0e0;
 }
 
-/* Section Ticket */
 .horizontal-scroll-wrapper::-webkit-scrollbar {
   height: 8px;
 }
@@ -158,6 +158,21 @@ footer p {
   background-color: #888;
   border-radius: 20px;
   border: 3px solid #e0e0e0;
+}
+
+.dots-container .dot {
+  height: 5px;
+  width: 20px;
+  background-color: #bbb;
+  display: inline-block;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dots-container .dot.active,
+.dots-container .dot:hover {
+  background-color: #555;
 }
 
 .image-container {
@@ -175,7 +190,7 @@ footer p {
 }
 
 .gradient-text-commu {
-  background: linear-gradient(to right, #661499, #980CF2 31%);
+  background: linear-gradient(to right, #661499, #980cf2 31%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -205,7 +220,6 @@ footer p {
   margin-right: 1.5rem;
 }
 
-
 @media only screen and (min-width: 768px) {
   .contain-description {
     padding-top: 10rem;
@@ -220,6 +234,12 @@ footer p {
 
   .ticket-description {
     font-size: 16px;
+  }
+
+  .dots-container .dot {
+    height: 10px;
+    width: 40px;
+    margin: 0 15px;
   }
 
   .img-major {
@@ -249,6 +269,12 @@ footer p {
     font-size: 26px;
   }
 
+  .dots-container .dot {
+    height: 10px;
+    width: 50px;
+    margin: 0 20px;
+  }
+
   .img-major {
     width: 16rem;
   }
@@ -256,6 +282,177 @@ footer p {
   .img-media {
     max-width: 2rem;
     margin-right: 1.5rem;
+  }
+}
+
+/* Others */
+/* ========== Align Text ========== */
+.txtCenter {
+  text-align: center;
+}
+.txtRight {
+  text-align: right;
+}
+.noWrap {
+  white-space: nowrap;
+}
+/* ========== Center & Middle ========== */
+.divTable {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.divCell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* ========== Modal Show Image Gallery ========== */
+.modalGallery {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+.galleryClose {
+  color: #666;
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  top: 8px;
+  right: 30px;
+}
+.galleryClose:hover,
+.galleryClose:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modalGallery,
+.modalGallery * {
+  box-sizing: border-box;
+}
+.boxGridLR {
+  display: grid;
+  grid-template-areas: "left right right right right right";
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+#sideBox {
+  grid-area: left;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 6px;
+  overflow: hidden;
+}
+#sideScroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+#sideScroll::-webkit-scrollbar {
+  width: 10px;
+}
+#sideScroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+#sideScroll::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+#sideScroll::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+.sideImg {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  height: 8vh;
+  width: calc(100% - 16px);
+  margin: 12px 0;
+  opacity: 0.25;
+  transition: 0.5s;
+}
+.sideImg:first-child {
+  margin-top: 0;
+}
+.sideImg:last-child {
+  margin-bottom: 0;
+}
+.imgShow {
+  opacity: 1;
+  border: 4px solid #fff;
+}
+.sideImg:hover {
+  opacity: 0.6;
+  border: 2px solid #aaa;
+  cursor: pointer;
+}
+#divShowGImg {
+  grid-area: right;
+  text-align: center;
+  padding: 10px;
+}
+#showImg {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 100%;
+  transition: 0.5s;
+}
+
+/* ===== Resize ===== */
+@media only screen and (max-width: 768px) {
+  /* ===== Others ===== */
+  /* Modal Gallery */
+  .galleryClose {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 580px) {
+  /* ===== Others ===== */
+  /* Modal Gallery */
+  .galleryClose {
+    font-size: 18px;
+    top: 4px;
+    right: 14px;
+  }
+  .boxGridLR {
+    grid-template-areas: "right" "right" "right" "right" "left";
+  }
+  #divShowGImg {
+    padding-top: 25px;
+  }
+  #sideScroll {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+  #sideScroll::-webkit-scrollbar {
+    height: 10px;
+  }
+  .sideImg {
+    background-position: top left;
+    background-size: auto 100%;
+    height: calc(100% - 16px);
+    width: 12vw;
+    margin: 0 4px;
+    display: inline-block;
+  }
+  .sideImg:first-child {
+    margin-left: 0;
+  }
+  .sideImg:last-child {
+    margin-right: 0;
   }
 }
 
