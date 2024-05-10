@@ -145,6 +145,7 @@ footer p {
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #888 #e0e0e0;
+  position: relative; /* Ensure the container supports absolute positioning */
 }
 
 .horizontal-scroll-wrapper::-webkit-scrollbar {
@@ -160,6 +161,30 @@ footer p {
   border-radius: 20px;
   border: 3px solid #e0e0e0;
 }
+
+.horizontal-scroll-wrapper::before,
+.horizontal-scroll-wrapper::after {
+  content: "";
+  flex: 0 0 25%;
+  height: 1px;
+}
+
+.div-descript {
+  z-index: 2;
+}
+
+.img-light-container {
+  position: absolute;
+  margin-top: 10rem;
+  margin-left: 0rem;
+  z-index: 0;
+}
+
+.description-light-ticket {
+  width: 150%;
+  opacity: 50%;
+}
+
 
 .dots-container .dot {
   height: 5px;
@@ -178,9 +203,9 @@ footer p {
 
 .image-container {
   flex: 0 0 auto;
-  width: 100%;
+  width: 60%;
   padding: 5%;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .img-fluid {
@@ -188,10 +213,53 @@ footer p {
   height: auto;
   border-radius: 5px;
   cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.gradient-text-cinema {
+  background: linear-gradient(to right, #8b6d55, #dda078 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-commu {
   background: linear-gradient(to right, #661499, #980cf2 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-inno {
+  background: linear-gradient(to right, #f7b53a, #d65736 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-health {
+  background: linear-gradient(to right, #cb2867, #b12939 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-tour {
+  background: linear-gradient(to right, #15aa70, #17de91 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cyber {
+  background: linear-gradient(to right, #0cb0e9, #1c85c5 31%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-multi {
+  background: linear-gradient(to right, #eb0c0c, #ff4e17 31%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -251,6 +319,11 @@ footer p {
     max-width: 2rem;
     margin-right: 1.5rem;
   }
+
+  .img-light-container {
+    margin-top: 10rem;
+    margin-left: 20rem;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -283,6 +356,10 @@ footer p {
   .img-media {
     max-width: 2rem;
     margin-right: 1.5rem;
+  }
+
+  .img-light-container {
+    margin-left: 40rem;
   }
 }
 

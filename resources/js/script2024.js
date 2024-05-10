@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       facebookUrl: "https://www.facebook.com/KeepRollingThesis?mibextid=LQQJ4d",
       instagramUrl:
         "https://www.instagram.com/keeprollingthesis?igsh=aHJ1MTE5cWR0NGc=",
+      gradientClass: "gradient-text-cinema",
       // galleryUrl: "#",
     },
     ticketCommu: {
@@ -56,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
       logoSrc: "resources/images/2024/logoMajor/Commu.png",
       facebookUrl: "https://www.facebook.com/CommuteluThesis",
       instagramUrl: "https://www.instagram.com/commuthesis/",
+      gradientClass: "gradient-text-commu",
       // galleryUrl: "https://www.google.com/",
     },
     ticketInno: {
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
       facebookUrl: "https://www.facebook.com/innocosciswu?mibextid=ZbWKwL",
       instagramUrl:
         "https://www.instagram.com/inno.cosci?igsh=ZjBxMG0xYXptYmV5",
+      gradientClass: "gradient-text-inno",
       // galleryUrl: "#",
     },
     ticketHealth: {
@@ -83,6 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "https://www.facebook.com/HealthThesisExhibition.COSCI?mibextid=LQQJ4d",
       instagramUrl:
         "https://www.instagram.com/healthcom.cosci?igsh=MThhajFzZ3FsZ2JtOQ==",
+      gradientClass: "gradient-text-health",
       // galleryUrl: "#",
     },
     ticketTourism: {
@@ -96,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
       facebookUrl: "https://www.facebook.com/TourismThesisExhibition",
       instagramUrl:
         "https://www.instagram.com/tourismthesis?igsh=OXJqYmc3dTN4OXNo&utm_source=qr",
+      gradientClass: "gradient-text-tour",
       // galleryUrl: "#",
     },
     ticketCyber: {
@@ -108,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       logoSrc: "resources/images/2024/logoMajor/Cyber.png",
       facebookUrl: "#",
       instagramUrl: "https://www.instagram.com/cyberchillmonument/",
+      gradientClass: "gradient-text-cyber",
       // galleryUrl: "#",
     },
     ticketMulti: {
@@ -120,103 +126,156 @@ document.addEventListener("DOMContentLoaded", function () {
       logoSrc: "resources/images/2024/logoMajor/Multi.png",
       facebookUrl: "https://www.facebook.com/Multi.Xhibition",
       instagramUrl: "https://www.instagram.com/endofonethird.exhibition",
+      gradientClass: "gradient-text-multi",
       // galleryUrl: "#",
     },
   };
 
-  // Function to change the description
-  function changeDescription(ticketId) {
-    const descriptionDiv = document.querySelector(".contain-description");
+  const gradientClasses = [
+    "gradient-text-cinema",
+    "gradient-text-commu",
+    "gradient-text-inno",
+    "gradient-text-health",
+    "gradient-text-tour",
+    "gradient-text-cyber",
+    "gradient-text-multi",
+  ];
 
-    descriptionDiv.querySelector(".head-ticket-description").textContent =
-      ticketDescriptions[ticketId].major;
-    descriptionDiv.querySelector(".ticket-description").textContent =
-      ticketDescriptions[ticketId].description;
-    descriptionDiv.querySelector(".major-thai").textContent =
-      ticketDescriptions[ticketId].majorThai;
-    descriptionDiv.querySelector(".major-eng").textContent =
-      ticketDescriptions[ticketId].majorEng;
-
-    const majorLogoImg = document.querySelector(".img-major");
-    majorLogoImg.src = ticketDescriptions[ticketId].logoSrc;
-
-    const galleryLink = document.getElementById("galleryLink");
-    galleryLink.onclick = function () {
-      show_gallery(ticketDescriptions[ticketId].majorGallery);
-    };
-  }
-
-  function updateLinks(ticketId) {
-    const facebookLink = document.getElementById("facebookLink");
-    const instagramLink = document.getElementById("instagramLink");
-    // const galleryLink = document.getElementById("galleryLink");
-
-    facebookLink.href = ticketDescriptions[ticketId].facebookUrl;
-    instagramLink.href = ticketDescriptions[ticketId].instagramUrl;
-    // galleryLink.href = ticketDescriptions[ticketId].galleryUrl;
-  }
-
-  Object.keys(ticketDescriptions).forEach(function (ticketId) {
-    const ticketElement = document.getElementById(ticketId);
-    if (ticketElement) {
-      ticketElement.addEventListener("click", function () {
-        changeDescription(ticketId);
-        updateLinks(ticketId);
-      });
-    }
-  });
-
-  //Dot Ticket
+  // Element selectors
+  const descriptionDiv = document.querySelector(".contain-description");
+  const majorLogoImg = document.querySelector(".img-major");
+  const facebookLink = document.getElementById("facebookLink");
+  const instagramLink = document.getElementById("instagramLink");
+  const galleryLink = document.getElementById("galleryLink");
   const scrollWrapper = document.querySelector(".horizontal-scroll-wrapper");
   const dotsContainer = document.querySelector(".dots-container");
   const images = scrollWrapper.querySelectorAll(".image-container");
 
-  // Function to scroll to image
-  function scrollToImage(index) {
-    const targetImage = images[index];
-    scrollWrapper.scrollLeft =
-      targetImage.offsetLeft - scrollWrapper.offsetLeft;
-    updateActiveDot(index);
+  function updateGradient(element, newGradientClass) {
+    element.classList.remove(...gradientClasses);
+    element.classList.add(newGradientClass);
   }
 
-  // Create dots and attach click event
-  images.forEach((img, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if (index === 0) dot.classList.add("active");
-    dot.addEventListener("click", () => scrollToImage(index));
-    dotsContainer.appendChild(dot);
-  });
+  function updateDescriptionAndLinks(ticketId) {
+    updateDescriptionContent(ticketId);
+    updateSocialLinks(ticketId);
+  }
 
-  // Function to update active dot based on index
-  function updateActiveDot(activeIndex = null) {
+  function updateDescriptionContent(ticketId) {
+    const { major, description, majorThai, majorEng, logoSrc, gradientClass } =
+      ticketDescriptions[ticketId];
+
+    descriptionDiv.querySelector(".head-ticket-description").textContent =
+      major;
+    descriptionDiv.querySelector(".ticket-description").textContent =
+      description;
+    descriptionDiv.querySelector(".major-thai").textContent = majorThai;
+    descriptionDiv.querySelector(".major-eng").textContent = majorEng;
+    majorLogoImg.src = logoSrc;
+    galleryLink.onclick = () =>
+      show_gallery(ticketDescriptions[ticketId].majorGallery);
+
+    updateGradient(
+      descriptionDiv.querySelector(".head-ticket-description"),
+      gradientClass
+    );
+    updateGradient(
+      descriptionDiv.querySelector(".ticket-description.major-thai"),
+      gradientClass
+    );
+    updateGradient(
+      descriptionDiv.querySelector(".ticket-description.major-eng"),
+      gradientClass
+    );
+  }
+
+  function updateSocialLinks(ticketId) {
+    const { facebookUrl, instagramUrl } = ticketDescriptions[ticketId];
+    facebookLink.href = facebookUrl;
+    instagramLink.href = instagramUrl;
+  }
+
+  function addTicketListeners() {
+    Object.keys(ticketDescriptions).forEach((ticketId) => {
+      const ticketElement = document.getElementById(ticketId);
+      if (ticketElement) {
+        ticketElement.addEventListener("click", () => {
+          updateDescriptionAndLinks(ticketId);
+        });
+      }
+    });
+  }
+
+  function initDotsAndImages() {
+    images.forEach((img, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (index === 0) dot.classList.add("active");
+
+      dot.addEventListener("click", () => {
+        scrollToImage(index);
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateActiveDot(activeIndex) {
     const dots = dotsContainer.querySelectorAll(".dot");
     dots.forEach((dot) => dot.classList.remove("active"));
-
-    // Calculate active dot if not provided
-    if (activeIndex === null) {
-      const scrollLeft = scrollWrapper.scrollLeft;
-      const maxScrollLeft =
-        scrollWrapper.scrollWidth - scrollWrapper.clientWidth;
-      const scrollFraction = scrollLeft / maxScrollLeft;
-      activeIndex = Math.round((images.length - 1) * scrollFraction);
-    }
 
     if (dots[activeIndex]) {
       dots[activeIndex].classList.add("active");
     }
   }
 
-  // Event listener for scroll to handle active dot update
-  scrollWrapper.addEventListener("scroll", () => updateActiveDot());
+  function scrollToImage(index) {
+    const targetImage = images[index];
+    scrollWrapper.scrollLeft =
+      targetImage.offsetLeft - scrollWrapper.offsetLeft;
+    updateActiveDot(index);
+    const ticketId = images[index].id;
+    updateDescriptionAndLinks(ticketId);
+  }
+
+  function handleScroll() {
+    const activeIndex = getMostProminentImage();
+    updateActiveDot(activeIndex);
+    const ticketId = images[activeIndex].id;
+    updateDescriptionAndLinks(ticketId);
+  }
+
+  function getMostProminentImage() {
+    let closestImageIndex = 0;
+    let minDistance = Number.MAX_VALUE;
+
+    images.forEach((img, index) => {
+      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+      const scrollCenter =
+        scrollWrapper.scrollLeft + scrollWrapper.offsetWidth / 2;
+      const distance = Math.abs(scrollCenter - imgCenter);
+
+      if (distance < minDistance) {
+        closestImageIndex = index;
+        minDistance = distance;
+      }
+    });
+
+    return closestImageIndex;
+  }
+
+  addTicketListeners();
+  initDotsAndImages();
+  scrollWrapper.addEventListener("scroll", handleScroll);
+  updateDescriptionAndLinks(images[0].id); // Initialize with the first image's data
 });
 
 /* ========== Image Gallery ========== */
 var sideScroll = document.getElementById("sideScroll");
 var showImage = document.getElementById("showImg");
 var numIndex = 0;
+var currentGalleryLoadingToken = null;
 
-// Before Show
 function show_gallery(majorCode) {
   $("#divLoad").show();
   while (sideScroll.hasChildNodes()) {
@@ -224,14 +283,21 @@ function show_gallery(majorCode) {
   }
   showImage.style.backgroundImage = "url()";
 
+  // Generate a new unique token for this loading session
+  const thisLoadingToken = Math.random();
+  currentGalleryLoadingToken = thisLoadingToken;
+
   setTimeout(function () {
-    set_gallery(majorCode);
+    if (currentGalleryLoadingToken !== thisLoadingToken) {
+      // If the token has changed, do not proceed with setting the gallery
+      return;
+    }
+    set_gallery(majorCode, thisLoadingToken);
     $("#divLoad").hide();
   }, 1000);
 }
 
-// Show Gallery
-function set_gallery(majorCode) {
+function set_gallery(majorCode, loadingToken) {
   const path = "resources/images/2024/thesis_collection/";
   let imageIndex = 1;
 
@@ -239,10 +305,18 @@ function set_gallery(majorCode) {
   loadNextImage();
 
   function loadNextImage() {
+    if (currentGalleryLoadingToken !== loadingToken) {
+      // Stop loading more images if the token has changed
+      return;
+    }
     const imgPath = `${path}${majorCode}_${imageIndex}.webp`;
     const imgElement = new Image();
 
     imgElement.onload = function () {
+      if (currentGalleryLoadingToken !== loadingToken) {
+        // If the token has changed during image load, do not append it
+        return;
+      }
       appendImage(imgPath);
       imageIndex++;
       setTimeout(loadNextImage, 500); // Delay next image loading
@@ -252,6 +326,7 @@ function set_gallery(majorCode) {
       console.error(
         "No more images to load or failed to load image at index: " + imageIndex
       );
+      // Optionally stop further attempts if a certain condition is met
     };
 
     imgElement.src = imgPath;
@@ -288,4 +363,24 @@ function set_gallery(majorCode) {
 $(".galleryClose").click(function () {
   $("#divGallery").hide();
   sideScroll.innerHTML = "";
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollWrapper = document.querySelector(".horizontal-scroll-wrapper");
+  const images = scrollWrapper.querySelectorAll(".image-container img");
+
+  function updateImageOpacity() {
+    const center = scrollWrapper.scrollLeft + scrollWrapper.offsetWidth / 2;
+
+    images.forEach((img) => {
+      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+      const distance = Math.abs(center - imgCenter);
+      const maxDistance = scrollWrapper.offsetWidth / 2; // Maximum distance from center to side of the scroll area
+      const opacity = Math.max(1 - distance / maxDistance, 0.5); // Opacity ranges from 0.5 to 1
+      img.style.opacity = opacity;
+    });
+  }
+
+  scrollWrapper.addEventListener("scroll", updateImageOpacity);
+  updateImageOpacity(); // Initial call to set the opacity properly
 });
