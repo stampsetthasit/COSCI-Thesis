@@ -178,13 +178,13 @@ footer p {
   margin-top: 10rem;
   margin-left: 0rem;
   z-index: 0;
+  overflow: hidden;
 }
 
 .description-light-ticket {
   width: 150%;
   opacity: 50%;
 }
-
 
 .dots-container .dot {
   height: 5px;
@@ -360,6 +360,10 @@ footer p {
 
   .img-light-container {
     margin-left: 40rem;
+  }
+
+  .description-light-ticket {
+    width: 110%;
   }
 }
 
