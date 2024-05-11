@@ -109,11 +109,13 @@ footer p {
 }
 
 #countdown {
-  background-image: url("/resources/images/2024/element-light2.png"); /* Specify the path to your image */
+  background-image: url("/resources/images/2024/element-light2.png");
+  /* Specify the path to your image */
   background-size: 60;
   background-repeat: no-repeat;
   background-position: right center !important;
 }
+
 .countdown-number {
   color: black;
   font-family: "Gothic A1", sans-serif;
@@ -145,7 +147,7 @@ footer p {
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: #888 #e0e0e0;
-  position: relative; /* Ensure the container supports absolute positioning */
+  position: relative;
 }
 
 .horizontal-scroll-wrapper::-webkit-scrollbar {
@@ -372,18 +374,22 @@ footer p {
 .txtCenter {
   text-align: center;
 }
+
 .txtRight {
   text-align: right;
 }
+
 .noWrap {
   white-space: nowrap;
 }
+
 /* ========== Center & Middle ========== */
 .divTable {
   display: table;
   width: 100%;
   height: 100%;
 }
+
 .divCell {
   display: table-cell;
   vertical-align: middle;
@@ -402,6 +408,7 @@ footer p {
   padding: 0;
   background-color: rgba(0, 0, 0, 0.95);
 }
+
 .galleryClose {
   color: #666;
   font-size: 50px;
@@ -410,16 +417,19 @@ footer p {
   top: 8px;
   right: 30px;
 }
+
 .galleryClose:hover,
 .galleryClose:focus {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
+
 .modalGallery,
 .modalGallery * {
   box-sizing: border-box;
 }
+
 .boxGridLR {
   display: grid;
   grid-template-areas: "left right right right right right";
@@ -428,6 +438,7 @@ footer p {
   width: 100%;
   height: 100%;
 }
+
 #sideBox {
   grid-area: left;
   background-color: #333;
@@ -435,25 +446,31 @@ footer p {
   padding: 6px;
   overflow: hidden;
 }
+
 #sideScroll {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
+
 #sideScroll::-webkit-scrollbar {
   width: 10px;
 }
+
 #sideScroll::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
+
 #sideScroll::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 10px;
 }
+
 #sideScroll::-webkit-scrollbar-thumb:hover {
   background: #666;
 }
+
 .sideImg {
   background-repeat: no-repeat;
   background-position: top;
@@ -464,26 +481,32 @@ footer p {
   opacity: 0.25;
   transition: 0.5s;
 }
+
 .sideImg:first-child {
   margin-top: 0;
 }
+
 .sideImg:last-child {
   margin-bottom: 0;
 }
+
 .imgShow {
   opacity: 1;
   border: 4px solid #fff;
 }
+
 .sideImg:hover {
   opacity: 0.6;
   border: 2px solid #aaa;
   cursor: pointer;
 }
+
 #divShowGImg {
   grid-area: right;
   text-align: center;
   padding: 10px;
 }
+
 #showImg {
   background-repeat: no-repeat;
   background-size: contain;
@@ -494,13 +517,16 @@ footer p {
 
 /* ===== Resize ===== */
 @media only screen and (max-width: 768px) {
+
   /* ===== Others ===== */
   /* Modal Gallery */
   .galleryClose {
     font-size: 40px;
   }
 }
+
 @media only screen and (max-width: 580px) {
+
   /* ===== Others ===== */
   /* Modal Gallery */
   .galleryClose {
@@ -508,20 +534,25 @@ footer p {
     top: 4px;
     right: 14px;
   }
+
   .boxGridLR {
-    grid-template-areas: "right" "right" "right" "right" "left";
+    grid-template-areas: "right""right""right""right""left";
   }
+
   #divShowGImg {
     padding-top: 25px;
   }
+
   #sideScroll {
     overflow-y: hidden;
     overflow-x: scroll;
     white-space: nowrap;
   }
+
   #sideScroll::-webkit-scrollbar {
     height: 10px;
   }
+
   .sideImg {
     background-position: top left;
     background-size: auto 100%;
@@ -530,9 +561,11 @@ footer p {
     margin: 0 4px;
     display: inline-block;
   }
+
   .sideImg:first-child {
     margin-left: 0;
   }
+
   .sideImg:last-child {
     margin-right: 0;
   }
